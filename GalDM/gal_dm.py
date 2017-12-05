@@ -15,11 +15,11 @@ import os
 import numpy as np
 import healpy as hp
 from tqdm import *
-from prop_mod import mod
-import create_mask_forJD as cm
+from .prop_mod import mod
+from .create_mask_forJD import make_mask_total as mmt
 
 # Import modules for calculating J/D factors
-from dm_int import dm_NFW, dm_Burkert, dm_Einasto
+from .dm_int import dm_NFW, dm_Burkert, dm_Einasto
 
 
 class dm_maps():
@@ -183,12 +183,12 @@ class dm_maps():
         """ Calculate the NFW J-factor
         """
 
-        ROI = cm.make_mask_total(nside=self.jd_nside, 
-                band_mask=band_mask, band_mask_range=band_mask_range,
-                l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
-                b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
-                mask_ring=mask_ring, inner=inner, outer=outer,
-                ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
+        ROI = mmt(nside=self.jd_nside, 
+                  band_mask=band_mask, band_mask_range=band_mask_range,
+                  l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
+                  b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
+                  mask_ring=mask_ring, inner=inner, outer=outer,
+                  ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
         
         ROIsr = float(len(ROI)) * hp.nside2pixarea(self.jd_nside)
 
@@ -210,12 +210,12 @@ class dm_maps():
         """ Calculate the NFW D-factor
         """
 
-        ROI = cm.make_mask_total(nside=self.jd_nside,
-                band_mask=band_mask, band_mask_range=band_mask_range,
-                l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
-                b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
-                mask_ring=mask_ring, inner=inner, outer=outer,
-                ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
+        ROI = mmt(nside=self.jd_nside,
+                  band_mask=band_mask, band_mask_range=band_mask_range,
+                  l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
+                  b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
+                  mask_ring=mask_ring, inner=inner, outer=outer,
+                  ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
 
         ROIsr = float(len(ROI)) * hp.nside2pixarea(self.jd_nside)
 
@@ -237,12 +237,12 @@ class dm_maps():
         """ Calculate the Burkert J-factor
         """
 
-        ROI = cm.make_mask_total(nside=self.jd_nside,
-                band_mask=band_mask, band_mask_range=band_mask_range,
-                l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
-                b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
-                mask_ring=mask_ring, inner=inner, outer=outer,
-                ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
+        ROI = mmt(nside=self.jd_nside,
+                  band_mask=band_mask, band_mask_range=band_mask_range,
+                  l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
+                  b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
+                  mask_ring=mask_ring, inner=inner, outer=outer,
+                  ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
 
         ROIsr = float(len(ROI)) * hp.nside2pixarea(self.jd_nside)
 
@@ -265,12 +265,12 @@ class dm_maps():
         """ Calculate the Burkert D-factor
         """
 
-        ROI = cm.make_mask_total(nside=self.jd_nside,
-                band_mask=band_mask, band_mask_range=band_mask_range,
-                l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
-                b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
-                mask_ring=mask_ring, inner=inner, outer=outer,
-                ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
+        ROI = mmt(nside=self.jd_nside,
+                  band_mask=band_mask, band_mask_range=band_mask_range,
+                  l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
+                  b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
+                  mask_ring=mask_ring, inner=inner, outer=outer,
+                  ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
 
         ROIsr = float(len(ROI)) * hp.nside2pixarea(self.jd_nside)
 
@@ -293,12 +293,12 @@ class dm_maps():
         """ Calculate the Einasto J-factor
         """
 
-        ROI = cm.make_mask_total(nside=self.jd_nside,
-                band_mask=band_mask, band_mask_range=band_mask_range,
-                l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
-                b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
-                mask_ring=mask_ring, inner=inner, outer=outer,
-                ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
+        ROI = mmt(nside=self.jd_nside,
+                  band_mask=band_mask, band_mask_range=band_mask_range,
+                  l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
+                  b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
+                  mask_ring=mask_ring, inner=inner, outer=outer,
+                  ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
 
         ROIsr = float(len(ROI)) * hp.nside2pixarea(self.jd_nside)
 
@@ -321,12 +321,12 @@ class dm_maps():
         """ Calculate the Einasto D-factor
         """
 
-        ROI = cm.make_mask_total(nside=self.jd_nside,
-                band_mask=band_mask, band_mask_range=band_mask_range,
-                l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
-                b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
-                mask_ring=mask_ring, inner=inner, outer=outer,
-                ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
+        ROI = mmt(nside=self.jd_nside,
+                  band_mask=band_mask, band_mask_range=band_mask_range,
+                  l_mask=l_mask, l_deg_min=l_deg_min, l_deg_max=l_deg_max,
+                  b_mask=b_mask, b_deg_min=b_deg_min, b_deg_max=b_deg_max,
+                  mask_ring=mask_ring, inner=inner, outer=outer,
+                  ring_b=ring_b, ring_l=ring_l, custom_mask=custom_mask)
 
         ROIsr = float(len(ROI)) * hp.nside2pixarea(self.jd_nside)
 

@@ -21,7 +21,7 @@ cdef double cmperkpc = 3.08567758e21 # kpc to cm
 # Navarro-Frenk-White (NFW) Profile #
 #####################################
 
-from dm_profiles cimport rhoNFW, NFWnorm
+from .dm_profiles cimport rhoNFW, NFWnorm
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
