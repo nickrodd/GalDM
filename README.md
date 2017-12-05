@@ -18,12 +18,8 @@ GalDM is written in a combination of `python` and `cython`. To install the codeb
 python setup.py install
 ```
 
-The setup script also compile the cython. To manually compile the cython locally, execute the following 
-
-```
-make build
-```
+The setup script also compiles the cython. 
 
 ## Examples
 
-A worked example for the code can be found [here](https://github.com/bsafdi/AxiScan/tree/master/examples/Example.ipynb). Before running this, the code must be installed following the instructions above.
+A worked example for the code can be found [here](https://github.com/nickrodd/GalDM/tree/master/examples/Example.ipynb). Before running this, the code must be installed following the instructions above.
