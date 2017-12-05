@@ -1,0 +1,31 @@
+# Data and temporary notebooks
+*.npy
+.ipynb_checkpoints
+plots
+data
+ipython
+mathematica
+DM_Maps
+build
+chains
+.coverage
+
+# compilation
+*dist*
+*egg*
+
+# Cython output
+*.pyc
+*.so
+*.o
+*.c
+
+# Trailing files
+*~
+*.log
+*.nfs*
+*.swp*
+*.out
+*.core
+*.swo
+*.amuse*
